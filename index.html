@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photobooth Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="welcomePage">
+    <h1>Selamat Datang di Photobooth Online!</h1>
+    <p>Aplikasi photobooth web untuk mengambil foto, menambah filter, bingkai, stiker, dan membagikan hasilnya. Cocok untuk event ulang tahun, pernikahan, seminar, dan lainnya.</p>
+    <button id="startPhotobooth" style="font-size:1.2em; padding:12px 32px; border-radius:8px; background:#6366f1; color:#fff; border:none; cursor:pointer;">Mulai Photobooth</button>
+  </div>
+  <div class="container">
+    <button id="backToWelcome" style="margin-bottom:12px; background:#e0e7ff; color:#222; border-radius:8px; border:none; padding:6px 18px; cursor:pointer;">&larr; Kembali ke Welcome</button>
+    <h1>Photobooth Online</h1>
+    <div class="preview-area">
+      <div id="stickerLayer" style="position:absolute; left:0; top:0; width:100%; height:100%; pointer-events:none;"></div>
+      <video id="video" autoplay playsinline></video>
+      <canvas id="canvas" style="display:none;"></canvas>
+      <img id="frame" src="" alt="Bingkai" style="display:none; position:absolute; top:0; left:0; pointer-events:none;"/>
+    </div>
+    <div class="controls">
+      <select id="frameSelect">
+        <option value="">Tanpa Bingkai</option>
+        <option value="frame1.png">Bingkai 1</option>
+        <option value="frame2.png">Bingkai 2</option>
+        <option value="color:red">Merah</option>
+        <option value="color:blue">Biru</option>
+        <option value="color:green">Hijau</option>
+        <option value="color:yellow">Kuning</option>
+        <option value="color:pink">Pink</option>
+        <option value="color:black">Hitam</option>
+      </select>
+      <select id="filterSelect">
+        <option value="none">Tanpa Filter</option>
+        <option value="grayscale(1)">Hitam Putih</option>
+        <option value="sepia(1)">Sepia</option>
+        <option value="invert(1)">Invert</option>
+        <option value="contrast(2)">Kontras Tinggi</option>
+        <option value="brightness(1.5)">Lebih Terang</option>
+        <option value="blur(2px)">Blur</option>
+        <option value="grainy">Grainy</option>
+        <option value="vintage">Vintage</option>
+      </select>
+      <div id="stickerBar">
+        <span class="sticker-option" data-sticker="😀">😀</span>
+        <span class="sticker-option" data-sticker="🎉">🎉</span>
+        <span class="sticker-option" data-sticker="❤️">❤️</span>
+        <span class="sticker-option" data-sticker="😎">😎</span>
+        <span class="sticker-option" data-sticker="🌸">🌸</span>
+        <span class="sticker-option" data-sticker="🥳">🥳</span>
+        <button id="undoSticker" type="button">Undo</button>
+        <button id="redoSticker" type="button">Redo</button>
+        <button id="clearSticker" type="button">Hapus Semua</button>
+      </div>
+      <input type="text" id="customText" placeholder="Tulis teks (misal: Nama Event)">
+      <button id="capture">Ambil Foto</button>
+      <button id="stripPhoto">Strip Photo (4x)</button>
+      <button id="retake" style="display:none;">Ulangi</button>
+      <button id="download" style="display:none;">Unduh Foto</button>
+      <button id="share" style="display:none;">Bagikan</button>
+    </div>
+    <div id="previewResult" style="display:none; margin-top:16px;"></div>
+    <div id="stripResult" style="display:none; margin-top:16px;"></div>
+    <div id="gallery" style="margin-top:24px;"></div>
+    <div id="countdown" style="display:none; font-size:2.5em; font-weight:bold; color:#333; margin-top:12px;"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html> 
